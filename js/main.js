@@ -5,7 +5,7 @@ $(document).ready(function(){
     // create var to display results to later
     var userPhone     = document.getElementById('results');
 
-    // store vaules for user first & last name, email and phone num
+    // store values for user first & last name, email and phone num
     var userFirst     = document.getElementById('userfname').value;
     var userLast      = document.getElementById('userlname').value;
     var userEmail     = document.getElementById('userEmail').value;
