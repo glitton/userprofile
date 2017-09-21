@@ -1,2 +1,43 @@
-/*https://codepen.io/glitton/pen/RLrYPW?page=2&q=user+profile*/
-/*For styling*/
+/*User Profile CSS*/
+
+.user-profile-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pic {
+    margin: 0 auto 10px auto;
+    text-align: center;
+}
+
+.pic img {
+    height:100px;
+    width:100px;
+    background: transparent;
+}
+
+.form-control{
+    margin-bottom: 20px;
+}
+
+.gender {
+    display: inline-block;
+}
+
+.radio-inline {
+    margin-left: 15px;
+}
+
+.pets {
+    display: inline-block;
+}
+
+.checkbox-inline {
+    margin-left: 34px;
+}
+
+.create {
+    margin: 20px auto 0 auto;
+    text-align: center;
+}
