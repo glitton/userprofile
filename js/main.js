@@ -1,158 +1,115 @@
 $(document).ready(function(){
 
-  // function to get users data
-  function getUserData() {
-    // create var to display results to later
-    var userPhone     = document.getElementById('results');
+  // hide new profile form before user completes the form 
+  document.getElementById('new-user').style.display = "none";
 
-    // store values for user first & last name, email and phone num
-    var userFirst     = document.getElementById('userfname').value;
-    var userLast      = document.getElementById('userlname').value;
-    var userEmail     = document.getElementById('userEmail').value;
-    var userPhone     = document.getElementById('userPhone').value;
+  // function to get users profile info 
+  function getUserInfo() {
+
+
+    // store values for user profile details
+    var firstName = document.getElementById('firstName').value;
+    var lastName  = document.getElementById('lastName').value;
+    var email     = document.getElementById('email').value;
+    var phone     = document.getElementById('phone').value;
 
     // store elements by class for radios and select - will loop through later to find user selection
-    var userGenderEls = document.getElementsByClassName("userGender");
-    var userColorEls  = document.getElementsByClassName("userColor");
-    var userBirthEls  = document.getElementsByClassName('userBirth');
+    var userGenderList = document.getElementsByClassName('gender');
+    var userPetsList   = document.getElementsByClassName("pet");
 
-    // create variables to store gender, color and birth later
-    var userGender, userColor, userBirth;
+    // create variables to store gender and pets, will loop through later
+    var userGender, userPets;
 
-    /*
-    FIRST NAME
-    */
-    if(userFirst == "") {
-      // add a class of failure to results if no user first name value
-      results.className = "failure";
-      // update the text content of results
-      results.textContent = "you forgot to add your first name";
+    // Div that displays a message if user doesn't input data
+    var message = document.getElementById('message');
 
+    // First Name
+    if(firstName === "") {
+      // add a class of no-input to message if user forgets to input value
+      message.className = "no-input";
+      // update the text content of message
+      message.textContent = "Please add your first name";
       // stop function if no answer
       return;
     };
 
-    /*
-    LAST NAME
-    */
-    if (userLast == "") {
-      // add a class of failure to results if no user last name value
-      results.className = "failure";
-      // update the text content of results
-      results.textContent = "you forgot to add your last name";
-
+    // Last Name
+    if (lastName === "") {
+      // add a class of no-input to message if user forgets to input value
+      message.className = "no-input";
+      // update the text content of message
+      message.textContent = "Please add your last name";
       // stop function if no answer
       return;
     };
 
-    /*
-    GENDER
-    */
-    // loop through all elements with class="userGender"
-    for(var i = 0; i < userGenderEls.length; i++) {
+    // Email 
+    if (email === "") {
+      // add a class of no-input to message if user forgets to input value
+      message.className = "no-input";
+      // update the text content of message
+      message.textContent = "Please add your email";
+      // stop function if no answer
+      return;
+    };
+
+    // Phone
+    if (phone === "") {
+      // add a class of no-input to message if no user phone value
+      message.className = "no-input";
+      // update the text content of message
+      message.textContent = "Please add your phone number";
+      // stop function if no answer
+      return;
+    };
+
+    // Country of residence
+    var country     = document.getElementById('country');
+    var userCountry = country.options[country.selectedIndex].text;
+
+    // Gender - loop through all elements with class="gender"
+    for(var i = 0; i < userGenderList.length; i++) {
       // if the radio was selected by the user, do this
-      if(userGenderEls[i].checked) {
-        // set value of answer 3 to the value in the radio item
-        userGender = userGenderEls[i].value;
+      if(userGenderList[i].checked) {
+        // set value of gender to the value selected in the radio 
+        userGender = userGenderList[i].value;
       };
     };
-    // stop function if no data is there for gender
+
     if(userGender == undefined) {
-      // add a class of failure to results if no user gender value
-      results.className = "failure";
-      // update the text content of results
-      results.textContent = "you forgot to select a gender";
-
+      // add a class of no-input to message if user forgets to select a value
+      message.className = "no-input";
+      // update the text content of message
+      message.textContent = "Please select your gender";
       // stop function if no answer
       return;
     };
 
-    /*
-    EMAIL
-    */
-    if (userEmail == "") {
-      // add a class of failure to results if no user email value
-      results.className = "failure";
-      // update the text content of results
-      results.textContent = "you forgot to add your email";
-
-      // stop function if no answer
-      return;
-    };
-
-    /*
-    PHONE NUMBER
-    */
-    if (userPhone == "") {
-      // add a class of failure to results if no user phone value
-      results.className = "failure";
-      // update the text content of results
-      results.textContent = "you forgot to add your phone number";
-
-      // stop function if no answer
-      return;
-    };
-
-    /*
-    FAVORITE COLOR
-    */
-    // loop through all elements with class="userColor"
-    for(var i = 0; i < userColorEls.length; i++) {
-      // check which was selected by the user, do this
-      if(userColorEls[i].selected) {
-        // set value of answer 2 to the value in the selected item
-        userColor = userColorEls[i].value;
-      };
-    };
-    // stop function if no data for question 2
-    if(userColor == "") {
-      // add a class of failure to results if no user color value
-      results.className = "failure";
-      // update the text content of results
-      results.textContent = "you forgot to select your favorite color";
-
-      // stop function if no answer
-      return;
+    // Pets - loop through checkboxes, append to an array, return values
+    var petList = document.getElementsByClassName('checked-pet');
+    // store selected pets in this list
+    var selectedPets = [];
+    // loop through pet list, push checked items in selectedPets
+    for(var i = 0; i < petList.length; i++){
+        if(petList[i].checked){
+            selectedPets.push(petList[i].value);
+        }
     }
+    return selectedPets;
 
-    /*
-    BIRTH PLACE
-    */
-    // loop through all elements with class="userBirth"
-    for(var i = 0; i < userBirthEls.length; i++) {
-      // if the radio was selected by the user, do this
-      if(userBirthEls[i].checked) {
-        // set value of answer 3 to the value in the radio item
-        userBirth = userBirthEls[i].value;
-      };
-    };
-    // stop function if no data is there for gender
-    if(userBirth == undefined) {
-      // add a class of failure to results if no user birth value
-      results.className = "failure";
-      // update the text content of results
-      results.textContent = "you forgot to select a place of birth";
-
-      // stop function if no answer
-      return;
-    }
-
-    /*
-    ON SUCCESS
-    */
-    // if everything passes add a class of success to results
-    results.className = "success";
+    // When everything looks good add a class of success to message
+    message.className = "success";
     // update the text content of results
-    results.textContent = "thanks! updating now";
+    message.textContent = "Got it! Creating your profile now...";
 
     // create object for user profile data
     var userProfile = {
-      name : userFirst + " " + userLast,
+      name   : firstName + " " + lastName,
+      email  : email,
+      phone  : phone,
+      country: userCountry,
       gender : userGender,
-      email : userEmail,
-      phone : userPhone,
-      color : userColor,
-      birth : userBirth
+      pets   : selectedPets
     };
 
     // confirm existance of all user profile data
@@ -164,35 +121,34 @@ $(document).ready(function(){
     }, 1000);
   };
 
-
   // display profile information
   function displayProfile(userProfile) {
     // make sure the user data is being passed through
     console.log(userProfile);
 
-    // select some HTML elements by id
-    var userName   = document.getElementById('newUserName');
-    var userGender = document.getElementById('newUserGender');
-    var userEmail  = document.getElementById('newUserEmail');
-    var userPhone  = document.getElementById('newUserPhone');
-    var userColor  = document.getElementById('newUserColor');
-    var userBirth  = document.getElementById('newUserBirth');
+    // select the HTML elements that will display the user profile info
+    var newUserName    = document.getElementById('new-user-name');
+    var newUserEmail   = document.getElementById('new-user-email');
+    var newUserPhone   = document.getElementById('new-user-phone');
+    var newUserCountry = document.getElementById('new-user-country');
+    var newUserGender  = document.getElementById('new-user-gender');
+    var newUserPets    = document.getElementById('new-user-pets');
 
-    // change the text of these variables using the userProfile object
-    userName.innerText   = "Welcome " + userProfile.name;
-    userGender.innerText = "Gender: " + userProfile.gender;
-    userEmail.innerText  = "Email: " + userProfile.email;
-    userPhone.innerText  = "Phone: " + userProfile.phone;
-    userColor.innerText  = "Favorite Color: " + userProfile.color;
-    userBirth.innerText  = "Birth Continent: " + userProfile.birth;
+    // Add text to the HTML elements using the userProfile object
+    newUserName.innerText    = "Welcome "  + userProfile.name;
+    newUserEmail.innerText   = "Email: "   + userProfile.email;
+    newUserPhone.innerText   = "Phone: "   + userProfile.phone;
+    newUserCountry.innerText = "Country: " + userProfile.country;
+    newUserGender.innerText  = "Gender: "  + userProfile.gender;
+    userBirth.innerText      = "Pets: "    + userProfile.pets;
 
-    // hide new profile form
-    document.getElementById('newProfile').style.display = "none";
+    // hide filled out user profile form
+    document.getElementById('user-form').style.display = "none";
     // display updated profile data
-    document.getElementById('updatedProfile').style.display = "block";
+    document.getElementById('new-user').style.display = "block";
   }
 
   // add click function to element with id="sendDataButton"
-  document.getElementById('sendDataButton').addEventListener('click', getUserData, false);
+  document.getElementById('create-profile').addEventListener('click', getUserInfo, false);
 
 });

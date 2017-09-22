@@ -25,7 +25,7 @@
         <div class="pic">
           <img src="img/photo-icon.png">
         </div>  
-        <form>
+        <form class="user-form">
           <div class="form-group">
             <!-- First Name -->
             <label for="firstName">First Name</label>
@@ -41,7 +41,7 @@
               <input type="phone" class="form-control" id="phone" placeholder="212-555-1212">
             <!-- Country -->
             <label for='country'>Country of Residence</label>
-              <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true" data-value="US">
+              <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true" data-value="US" id="country">
               </div>   
             <!-- Gender   -->
             <div class="gender">
@@ -59,36 +59,40 @@
              <!-- Pets  -->
             <div class="pets">
               <label>Pets</label> 
-                <label class="checkbox-inline">
-                  <input type="checkbox" value="dogs">Dog
+                <label class="checkbox-inline checked-pet">
+                  <input type="checkbox" value="dog">Dog
                 </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox" value="cats">Cat
+                <label class="checkbox-inline checked-pet">
+                  <input type="checkbox" value="cat">Cat
                 </label>
-                <label class="checkbox-inline rabbit">
-                  <input type="checkbox" value="other">Rabbit
+                <label class="checkbox-inline checked-pet">
+                  <input type="checkbox" value="rabbit">Rabbit
                 </label> 
-                <label class="checkbox-inline">
+                <label class="checkbox-inline checked-pet">
                   <input type="checkbox" value="other">Other
                 </label>
               </div>  
             <!-- Create Profile Button -->
             <div class="create">
-              <button type="button" class="btn btn-primary">
+              <button type="button" class="btn btn-primary create-profile">
                 Create Profile
               </button>
             </div>  
           </div>
         </form>
 
+        <div id="message">
+          <h3>Hello</h3>
+        </div>
+
         <!-- New User Profile Result -->
         <div class="new-user">
-          <h2 class="new-user-greeting"></h2>
-          <h2 class="new-user-email"></h2>
-          <h2 class="new-user-phone"></h2>
-          <h2 class="new-user-country"></h2>
-          <h2 class="new-user-gender"></h2>
-          <h2 class="new-user-pets"></h2>
+          <h2 class="new-user-name">Hello</h2>
+          <h3 class="new-user-email">Hello</h3>
+          <h3 class="new-user-phone">Hello</h3>
+          <h3 class="new-user-country">Hello</h3>
+          <h3 class="new-user-gender">Hello</h3>
+          <h3 class="new-user-pets">Hello</h3>
 
           <div class="update">
             <button type="button" class="btn btn-danger">

@@ -1,5 +1,6 @@
 /*User Profile CSS*/
 
+
 .user-profile-title {
     margin-top: 30px;
     margin-bottom: 10px;
@@ -40,4 +41,48 @@
 .create {
     margin: 20px auto 0 auto;
     text-align: center;
+}
+
+#message {
+    color: white;
+    text-align: center;
+
+}
+
+.no-input {
+    border: 2px solid #d33682;
+    background-color: #d33682;
+    border-radius: 5px;
+
+}
+
+.no-input h3,
+.success h3 {
+    margin: 5px;
+}
+
+.success {
+    border: 2px solid #2aa198;
+    background-color: #2aa198;
+    border-radius: 5px;
+}
+
+.new-user {
+    color: white;
+}
+
+.new-user-greeting {
+    text-align: center;
+}
+
+.update {
+    margin: 30px auto;
+    width: 95%;
+    text-align: center;
+
+}
+
+.btn-danger {
+    margin-right: 40px;
+
 }
