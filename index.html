@@ -1,9 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <!-- Bootstrap Form Helpers -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.css" integrity="sha256-PHODGRRRDTR95tVLjWRgLjlEG406izdrUdzzRG95Wks=" crossorigin="anonymous" />
+    <!-- Bootstrap CDN link -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="css/solar.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -74,19 +79,17 @@
               </div>  
             <!-- Create Profile Button -->
             <div class="create">
-              <button type="button" class="btn btn-primary create-profile">
+              <button type="button" id="create-profile" class="btn btn-primary">
                 Create Profile
               </button>
             </div>  
           </div>
         </form>
-
-        <div id="message">
-          <h3>Hello</h3>
-        </div>
-
         <!-- New User Profile Result -->
-        <div class="new-user">
+        <div class="new-user" id="new-user-div">
+          <div id="message">
+           <h3>Hello</h3>
+         </div>
           <h2 class="new-user-name">Hello</h2>
           <h3 class="new-user-email">Hello</h3>
           <h3 class="new-user-phone">Hello</h3>
@@ -102,9 +105,8 @@
               Confirm Profile
             </button>
           </div>
-
         </div>
-      </div>
+      </div> <!-- End of user profile --> 
       <!-- div spacer -->
       <div class="col-lg-4"></div>
 
