@@ -30,7 +30,7 @@
         <div class="pic">
           <img src="img/photo-icon.png">
         </div>  
-        <form class="user-form">
+        <form class="user-form" id="user-profile">
           <div class="form-group">
             <!-- First Name -->
             <label for="firstName">First Name</label>
@@ -85,23 +85,26 @@
             </div>  
           </div>
         </form>
+        <!-- Renders message to user if form isn't filled out -->
+        <div id="message">
+          <h3></h3>
+        </div>
+
         <!-- New User Profile Result -->
         <div class="new-user" id="new-user-div">
-          <div id="message">
-           <h3>Hello</h3>
-         </div>
-          <h2 class="new-user-name">Hello</h2>
-          <h3 class="new-user-email">Hello</h3>
-          <h3 class="new-user-phone">Hello</h3>
-          <h3 class="new-user-country">Hello</h3>
-          <h3 class="new-user-gender">Hello</h3>
-          <h3 class="new-user-pets">Hello</h3>
+          <h2 id="new-user-name">Hello</h2>
+          <h3 id="new-user-email">Hello</h3>
+          <h3 id="new-user-phone">Hello</h3>
+          <h3 id="new-user-country">Hello</h3>
+          <h3 id="new-user-gender">Hello</h3>
+          <h3 id="new-user-pets">Hello</h3>
+          <h4>If your profile details look good, confirm profile. Otherwise,  click update profile to make changes.</h4>
 
           <div class="update">
-            <button type="button" class="btn btn-danger">
-              Change Profile
+            <button type="button" id="change-profile" class="btn btn-danger">
+              Update Profile
             </button>
-            <button type="button" class="btn btn-success">
+            <button type="button" id="confirm-profile" class="btn btn-success">
               Confirm Profile
             </button>
           </div>
