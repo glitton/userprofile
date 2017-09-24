@@ -65,18 +65,19 @@ $(document).ready(function(){
     // Country of residence
     // var country     = document.getElementById('country');
     // var userCountry = country.options[country.selectedIndex].text;
+    // console.log('country ' + userCountry);
 
     // Gender - loop through all elements with class="gender"
-    // var userGenderList = document.getElementsByClassName('gender');
-    // console.log('Gender list ' + userGenderList);
+    var userGenderList = document.getElementsByClassName('gender-radio');
 
-    // for(var i = 0; i < userGenderList.length; i++) {
-    //   // if the radio was selected by the user, do this
-    //   if(userGenderList[i].checked) {
-    //     // set value of gender to the value selected in the radio 
-    //     var userGender = userGenderList[i].value;
-    //   }
-    // }
+    for(var i = 0; i < userGenderList.length; i++) {
+      // if the radio was selected by the user, do this
+      if(userGenderList[i].checked) {
+        // set value of gender to the value selected in the radio 
+        var userGender = userGenderList[i].value;
+        console.log('Gender list ' + userGender);
+      }
+    }
 
     // if(userGender == undefined) {
     //   // add a class of no-input to message if user forgets to select a value
@@ -123,7 +124,7 @@ $(document).ready(function(){
       email  : email,
       phone  : phone,
       // country: userCountry,
-      // gender : userGender,
+      gender : userGender,
       // pets   : selectedPets
     };
 
@@ -143,11 +144,11 @@ $(document).ready(function(){
 
     // select the HTML elements that will display the user profile info
     var newUserName    = document.getElementById('new-user-name');
-    console.log('This is newUserName' + newUserName);
     var newUserEmail   = document.getElementById('new-user-email');
     var newUserPhone   = document.getElementById('new-user-phone');
     // var newUserCountry = document.getElementById('new-user-country');
     var newUserGender  = document.getElementById('new-user-gender');
+
     var newUserPets    = document.getElementById('new-user-pets');
 
     // Add text to the HTML elements using the userProfile object
@@ -156,7 +157,7 @@ $(document).ready(function(){
     newUserEmail.innerText   = "Email: "   + userProfile.email;
     newUserPhone.innerText   = "Phone: "   + userProfile.phone;
     // newUserCountry.innerText = "Country: " + userProfile.country;
-    // newUserGender.innerText  = "Gender: "  + userProfile.gender;
+    newUserGender.innerText  = "Gender: "  + userProfile.gender;
     // newUserPets.innerText      = "Pets: "    + userProfile.pets;
 
     // hide filled out user profile form and message
