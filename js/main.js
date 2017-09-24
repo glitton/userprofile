@@ -1,6 +1,6 @@
 $(document).ready(function(){
   console.log('document loaded');
-  // hide new profile form before user completes the form 
+  // hide new profile confirmation before user completes the form 
   document.getElementById('new-user-div').style.display = 'none';
   console.log('new user div is hidden');
 
@@ -16,8 +16,7 @@ $(document).ready(function(){
     var lastName  = document.getElementById('lastName').value;
     var email     = document.getElementById('email').value;
     var phone     = document.getElementById('phone').value;
-
-    console.log(firstName,lastName,email, phone);
+    // console.log(firstName,lastName,email, phone);
 
     // Div that displays a message if user doesn't input data
     var message = document.getElementById('message');
@@ -62,10 +61,15 @@ $(document).ready(function(){
       return;
     };
 
-    // Country of residence
-    var country     = document.getElementById('country');
-    var userCountry = country.getAttribute('data-value');
-    console.log('country ' + userCountry);
+    // City
+    var userCity = document.getElementById('city').value;
+    // var userCountry = country.getAttribute('data-value');
+    console.log('City ' + userCity);
+
+    // State
+    var userState = document.getElementById('state').value;
+    // var userCountry = country.getAttribute('data-value');
+    console.log('City ' + userState);
 
     // Gender - loop through all elements with class="gender"
     var userGenderList = document.getElementsByClassName('gender-radio');
@@ -120,7 +124,8 @@ $(document).ready(function(){
       name   : firstName + " " + lastName,
       email  : email,
       phone  : phone,
-      country: userCountry,
+      city   : userCity,
+      state  : userState,
       gender : userGender,
       pets   : selectedPets
     };
@@ -143,18 +148,17 @@ $(document).ready(function(){
     var newUserName    = document.getElementById('new-user-name');
     var newUserEmail   = document.getElementById('new-user-email');
     var newUserPhone   = document.getElementById('new-user-phone');
-    var newUserCountry = document.getElementById('new-user-country');
+    var newCityState   = document.getElementById('new-user-city-state');
     var newUserGender  = document.getElementById('new-user-gender');
-
     var newUserPets    = document.getElementById('new-user-pets');
 
     // Add text to the HTML elements using the userProfile object
     newUserName.innerText    = "Welcome "  + userProfile.name + "!";
     newUserEmail.innerText   = "Email: "   + userProfile.email;
     newUserPhone.innerText   = "Phone: "   + userProfile.phone;
-    newUserCountry.innerText = "Country: " + userProfile.country;
+    newCityState.innerText   = "City and State: " + userProfile.city + ", " + userProfile.state;
     newUserGender.innerText  = "Gender: "  + userProfile.gender;
-    newUserPets.innerText    = "Pet(s): "    + userProfile.pets;
+    newUserPets.innerText    = "Pet(s): "  + userProfile.pets;
 
     // hide filled out user profile form and message
     document.getElementById('user-profile').style.display = "none";
@@ -162,5 +166,32 @@ $(document).ready(function(){
     // display updated profile data
     document.getElementById('new-user-div').style.display = "block";
   }
+  // Function that confirms user profile was created
+  function confirmProfile(){
+    document.getElementById('message').style.display = "block";
+    message.className = "success";
+    // update the text content of results
+    setTimeout(function(){
+     message.textContent = "Your new user profile was created!";
+    }, 2000);
+    
+  }
+  // Function that lets user update profile
+  function updateProfile(){
+    document.getElementById('message').style.display = "block";
+    message.className = "no-input";
+    setTimeout(function(){
+     message.textContent = "Go ahead and update your profile!";
+    }, 2000);
+    document.getElementById('new-user-div').style.display = 'none';
+    getUserInfo();
+
+  }
+
+  //Add event listener to button with id="confirm-profile"
+  document.getElementById('confirm-profile').addEventListener('click', confirmProfile, false);
+
+  //Add event listener to button with id="update-profile"
+  document.getElementById('update-profile').addEventListener('click', updateProfile, false);
 
 });

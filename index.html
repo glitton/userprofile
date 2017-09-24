@@ -45,21 +45,12 @@
             <!-- Phone   -->
             <label for="phone">Phone</label>
               <input type="phone" class="form-control" id="phone" placeholder="212-555-1212">
-              <!-- Bootstrap helper Country list -->
-              <label for='country'>Country of Residence</label>
-              <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true">
-                <input type="hidden" value="">
-                <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
-                  <span class="bfh-selectbox-option input-medium" data-option=""></span>
-                  <b class="caret"></b>
-                </a>
-                <div class="bfh-selectbox-options">
-                  <input type="text" class="bfh-selectbox-filter">
-                  <div role="listbox">
-                  <ul role="option"></ul>
-                  </div>
-                </div>
-              </div>  
+            <!-- City -->
+            <label for='city'>City</label>
+              <input type="text" class="form-control" id="city" placeholder="San Francisco">
+            <!-- State Dropdown  -->
+            <label for='state'>State</label>
+            <select id="state" class="form-control input-medium bfh-states" data-country="US" data-state="CA"></select>
             <!-- Gender   -->
             <div class="gender">
               <label for="gender">Gender</label>
@@ -107,13 +98,13 @@
           <h2 id="new-user-name">Hello</h2>
           <h3 id="new-user-email">Hello</h3>
           <h3 id="new-user-phone">Hello</h3>
-          <h3 id="new-user-country">Hello</h3>
+          <h3 id="new-user-city-state">Hello</h3>
           <h3 id="new-user-gender">Hello</h3>
           <h3 id="new-user-pets">Hello</h3>
           <h4>If your profile details look good, confirm profile. Otherwise,  click update profile to make changes.</h4>
 
           <div class="update">
-            <button type="button" id="change-profile" class="btn btn-danger">
+            <button type="button" id="update-profile" class="btn btn-danger">
               Update Profile
             </button>
             <button type="button" id="confirm-profile" class="btn btn-success">
