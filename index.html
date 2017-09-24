@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <!-- Bootstrap Form Helpers -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.css" integrity="sha256-PHODGRRRDTR95tVLjWRgLjlEG406izdrUdzzRG95Wks=" crossorigin="anonymous" />
-    <!-- Bootstrap CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.css" />
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- My CSS -->
@@ -44,10 +45,6 @@
             <!-- Phone   -->
             <label for="phone">Phone</label>
               <input type="phone" class="form-control" id="phone" placeholder="212-555-1212">
-            <!-- Country -->
-            
-<!--               <div id="country" class="bfh-selectbox bfh-countries" data-country="US" data-flags="true" data-value="">
-              </div>  -->
               <!-- Bootstrap helper Country list -->
               <label for='country'>Country of Residence</label>
               <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true">
@@ -59,8 +56,7 @@
                 <div class="bfh-selectbox-options">
                   <input type="text" class="bfh-selectbox-filter">
                   <div role="listbox">
-                  <ul role="option">
-                  </ul>
+                  <ul role="option"></ul>
                   </div>
                 </div>
               </div>  
@@ -144,8 +140,12 @@
 
   <!-- Bootstrap JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+  <!-- Bootstrap form helper js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.js"></script>
   <!-- Bootstrap Form Helpers Countries-->
   <script src="js/bootstrap-formhelpers-countries.js"></script>
+  <!-- Bootstrap Form Helpers Countries-->
+  <script src="js/bootstrap-formhelpers-selectbox.js"></script>
   <!-- My JS -->
   <script src="js/main.js"></script>        
 </body>
