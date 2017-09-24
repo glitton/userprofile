@@ -63,9 +63,9 @@ $(document).ready(function(){
     };
 
     // Country of residence
-    // var country     = document.getElementById('country');
-    // var userCountry = country.options[country.selectedIndex].text;
-    // console.log('country ' + userCountry);
+    var country     = document.getElementById('country');
+    var userCountry = country.getAttribute('data-value');
+    console.log('country ' + userCountry);
 
     // Gender - loop through all elements with class="gender"
     var userGenderList = document.getElementsByClassName('gender-radio');
@@ -79,53 +79,50 @@ $(document).ready(function(){
       }
     }
 
-    // if(userGender == undefined) {
-    //   // add a class of no-input to message if user forgets to select a value
-    //   message.className = "no-input";
-    //   // update the text content of message
-    //   message.textContent = "Please select your gender";
-    //   // stop function if no answer
-    //   return;
-    // };
+    if(userGender == undefined) {
+      // add a class of no-input to message if user forgets to select a value
+      message.className = "no-input";
+      // update the text content of message
+      message.textContent = "Please select your gender";
+      // stop function if no answer
+      return;
+    };
 
     // // Pets - loop through checkboxes, append to an array, return values
-    // var petList = document.getElementsByClassName('checked-pet');
-    // console.log('Pet list ' + petList);
+    var petList = document.getElementsByClassName('checked-pet');
+    console.log('Pet list ' + petList);
 
-    // // store selected pets in this list
-    // var selectedPets = [];
-    // // loop through pet list, push checked items in selectedPets
-    // for(var i = 0; i < petList.length; i++){
-    //     if(petList[i].checked){
-    //         selectedPets.push(petList[i].value);
-    //     }
-    // }
+    // store selected pets in this list
+    var selectedPets = [];
+    // loop through pet list, push checked items in selectedPets
+    for(var i = 0; i < petList.length; i++){
+        if(petList[i].checked){
+            selectedPets.push(petList[i].value);
+        }
+    }
 
-    // if(petList == undefined) {
-    //   // add a class of no-input to message if user forgets to select a value
-    //   message.className = "no-input";
-    //   // update the text content of message
-    //   message.textContent = "Please select your pets";
-    //   // stop function if no answer
-    //   return;
-    // };
-
-    // return selectedPets;
-    // console.log(selectedPets);
+    if(petList == undefined) {
+      // add a class of no-input to message if user forgets to select a value
+      message.className = "no-input";
+      // update the text content of message
+      message.textContent = "Please select your pets";
+      // stop function if no answer
+      return;
+    };
 
     // When everything looks good add a class of success to message
     message.className = "success";
     // update the text content of results
-    message.textContent = "Got it! Creating your profile now...";
+    message.textContent = "Got it! Creating your profile now ...";
 
     // create object for user profile data
     var userProfile = {
       name   : firstName + " " + lastName,
       email  : email,
       phone  : phone,
-      // country: userCountry,
+      country: userCountry,
       gender : userGender,
-      // pets   : selectedPets
+      pets   : selectedPets
     };
 
     // confirm existance of all user profile data
@@ -134,7 +131,7 @@ $(document).ready(function(){
     // run displayProfile after 1 second passing in new profile data to be displayed
     setTimeout(function() {
       displayProfile(userProfile);
-    }, 2000);
+    }, 3000);
   };
 
   // display profile information
@@ -146,19 +143,18 @@ $(document).ready(function(){
     var newUserName    = document.getElementById('new-user-name');
     var newUserEmail   = document.getElementById('new-user-email');
     var newUserPhone   = document.getElementById('new-user-phone');
-    // var newUserCountry = document.getElementById('new-user-country');
+    var newUserCountry = document.getElementById('new-user-country');
     var newUserGender  = document.getElementById('new-user-gender');
 
     var newUserPets    = document.getElementById('new-user-pets');
 
     // Add text to the HTML elements using the userProfile object
     newUserName.innerText    = "Welcome "  + userProfile.name + "!";
-    console.log("this is newusername innertext " + newUserName.innerText);
     newUserEmail.innerText   = "Email: "   + userProfile.email;
     newUserPhone.innerText   = "Phone: "   + userProfile.phone;
-    // newUserCountry.innerText = "Country: " + userProfile.country;
+    newUserCountry.innerText = "Country: " + userProfile.country;
     newUserGender.innerText  = "Gender: "  + userProfile.gender;
-    // newUserPets.innerText      = "Pets: "    + userProfile.pets;
+    newUserPets.innerText    = "Pet(s): "    + userProfile.pets;
 
     // hide filled out user profile form and message
     document.getElementById('user-profile').style.display = "none";

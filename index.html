@@ -45,9 +45,25 @@
             <label for="phone">Phone</label>
               <input type="phone" class="form-control" id="phone" placeholder="212-555-1212">
             <!-- Country -->
-            <label for='country'>Country of Residence</label>
-              <div id="country" class="bfh-selectbox bfh-countries" data-country="US" data-flags="true" data-value="US">
-              </div>   
+            
+<!--               <div id="country" class="bfh-selectbox bfh-countries" data-country="US" data-flags="true" data-value="">
+              </div>  -->
+              <!-- Bootstrap helper Country list -->
+              <label for='country'>Country of Residence</label>
+              <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true">
+                <input type="hidden" value="">
+                <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
+                  <span class="bfh-selectbox-option input-medium" data-option=""></span>
+                  <b class="caret"></b>
+                </a>
+                <div class="bfh-selectbox-options">
+                  <input type="text" class="bfh-selectbox-filter">
+                  <div role="listbox">
+                  <ul role="option">
+                  </ul>
+                  </div>
+                </div>
+              </div>  
             <!-- Gender   -->
             <div class="gender">
               <label for="gender">Gender</label>
@@ -55,7 +71,7 @@
                   <input type="radio" class="gender-radio" name="gender" value="Female">Female
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" class=" gender-radio" name="gender" value="Male">Male
+                  <input type="radio" class="gender-radio" name="gender" value="Male">Male
                 </label>
                 <label class="radio-inline">
                   <input type="radio" class=" gender-radio" name="gender" value="Other">Other
@@ -64,17 +80,17 @@
              <!-- Pets  -->
             <div class="pets">
               <label>Pets</label> 
-                <label class="checkbox-inline checked-pet">
-                  <input type="checkbox" value="dog">Dog
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="checked-pet" value="Dog">Dog
                 </label>
-                <label class="checkbox-inline checked-pet">
-                  <input type="checkbox" value="cat">Cat
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="checked-pet" value="Cat">Cat
                 </label>
-                <label class="checkbox-inline checked-pet">
-                  <input type="checkbox" value="rabbit">Rabbit
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="checked-pet" value="Rabbit">Rabbit
                 </label> 
-                <label class="checkbox-inline checked-pet">
-                  <input type="checkbox" value="other">Other
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="checked-pet" value="other">Other
                 </label>
               </div>  
             <!-- Create Profile Button -->
@@ -125,10 +141,11 @@
   crossorigin="anonymous"></script>
   <!-- Bootstrap jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Bootstrap Form Helpers -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.js" integrity="sha256-aQQB61wWHXijuUZut9zjBbMg3rC/YjfchkQVudgpAqo=" crossorigin="anonymous"></script>
+
   <!-- Bootstrap JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+  <!-- Bootstrap Form Helpers Countries-->
+  <script src="js/bootstrap-formhelpers-countries.js"></script>
   <!-- My JS -->
   <script src="js/main.js"></script>        
 </body>
