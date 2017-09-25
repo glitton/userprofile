@@ -38,6 +38,12 @@
     margin-left: 34px;
 }
 
+#none-label {
+    position: absolute;
+    left: 315px;
+    bottom: 76px;
+}
+
 .create {
     margin: 20px auto 0 auto;
     text-align: center;
