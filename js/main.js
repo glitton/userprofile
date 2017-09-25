@@ -105,7 +105,7 @@ $(document).ready(function(){
         }
     }
 
-    if(petList == undefined) {
+    if(petList === undefined) {
       // add a class of no-input to message if user forgets to select a value
       message.className = "no-input";
       // update the text content of message
@@ -166,32 +166,39 @@ $(document).ready(function(){
     // display updated profile data
     document.getElementById('new-user-div').style.display = "block";
   }
+
   // Function that confirms user profile was created
   function confirmProfile(){
-    document.getElementById('message').style.display = "block";
     message.className = "success";
+    message.textContent = "Your new user profile was created!";
     // update the text content of results
     setTimeout(function(){
-     message.textContent = "Your new user profile was created!";
-    }, 2000);
-    
-  }
-  // Function that lets user update profile
-  function updateProfile(){
-    document.getElementById('message').style.display = "block";
-    message.className = "no-input";
-    setTimeout(function(){
-     message.textContent = "Go ahead and update your profile!";
-    }, 2000);
-    document.getElementById('new-user-div').style.display = 'none';
-    getUserInfo();
-
+     document.getElementById('message').style.display = "block";
+    }, 1000);       
   }
 
   //Add event listener to button with id="confirm-profile"
   document.getElementById('confirm-profile').addEventListener('click', confirmProfile, false);
 
+
+  // Function that lets user update profile
+  function updateProfile(){
+    // Show message block with class of no-input (pink)
+    message.className = "no-input";
+    // Display this message
+    message.textContent = "Go ahead and update your profile!";
+    // Show the div
+    document.getElementById('message').style.display = "block";
+    // Hide the newuser form div
+    document.getElementById('new-user-div').style.display = 'none';
+
+    // Invoke getUserInfo function 
+    getUserInfo();
+    // Show user profile form so user can update the form
+    document.getElementById('user-profile').style.display = "block";
+
+  }
   //Add event listener to button with id="update-profile"
   document.getElementById('update-profile').addEventListener('click', updateProfile, false);
 
-});
+}); //End of document ready
