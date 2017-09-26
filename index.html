@@ -44,7 +44,7 @@
               <input type="email" class="form-control" id="email" placeholder="ndrew@email.com">
             <!-- Phone   -->
             <label for="phone">Phone</label>
-              <input type="phone" class="form-control" id="phone" placeholder="212-555-1212">
+              <input type="phone" class="form-control" id="phone" placeholder="(212) 555-1212">
             <!-- City -->
             <label for='city'>City</label>
               <input type="text" class="form-control" id="city" placeholder="San Francisco">
@@ -68,18 +68,18 @@
             <div class="pets">
               <label>Pets</label> 
                 <label class="checkbox-inline">
-                  <input type="checkbox" class="checked-pet" value="Dog">Dog
+                  <input type="checkbox" class="checked-pet uncheck" value="Dog">Dog
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" class="checked-pet" value="Cat">Cat
+                  <input type="checkbox" class="checked-pet uncheck" value="Cat">Cat
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" class="checked-pet" value="Rabbit">Rabbit
+                  <input type="checkbox" class="checked-pet uncheck" value="Rabbit">Rabbit
                 </label> 
                 <label class="checkbox-inline">
-                  <input type="checkbox" class="checked-pet" value="Other">Other
+                  <input type="checkbox" class="checked-pet uncheck" value="Other">Other
                 </label>
-                <label id="none-label" class="checkbox-inline">
+                <label class="checkbox-inline none-label">
                   <input id="none" type="checkbox" class="checked-pet" value="None">None
                 </label>
               </div>  
@@ -98,13 +98,15 @@
 
         <!-- New User Profile Result -->
         <div class="new-user" id="new-user-div">
-          <h2 id="new-user-name">Hello</h2>
-          <h3 id="new-user-email">Hello</h3>
-          <h3 id="new-user-phone">Hello</h3>
-          <h3 id="new-user-city-state">Hello</h3>
-          <h3 id="new-user-gender">Hello</h3>
-          <h3 id="new-user-pets">Hello</h3>
-          <h4>If your profile details look good, confirm profile. Otherwise,  click update profile to make changes.</h4>
+          <h2 id="new-user-name"></h2>
+          <h3 id="new-user-email"></h3>
+          <h3 id="new-user-phone"></h3>
+          <h3 id="new-user-city-state"></h3>
+          <h3 id="new-user-gender"></h3>
+          <h3 id="new-user-pets"></h3>
+          <h4 class="profile-message">
+            If your profile details look good, click confirm profile. Otherwise,  click update profile to make changes.
+          </h4>
 
           <div class="update">
             <button type="button" id="update-profile" class="btn btn-danger">
@@ -136,10 +138,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
   <!-- Bootstrap form helper js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.js"></script>
-  <!-- Bootstrap Form Helpers Countries-->
-  <script src="js/bootstrap-formhelpers-countries.js"></script>
-  <!-- Bootstrap Form Helpers Countries-->
-  <script src="js/bootstrap-formhelpers-selectbox.js"></script>
+  <!-- jQuery Mask Plug-in http://igorescobar.github.io/jQuery-Mask-Plugin/ -->
+  <script src="js/jquery.mask.js"></script>
   <!-- My JS -->
   <script src="js/main.js"></script>        
 </body>

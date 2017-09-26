@@ -6,11 +6,12 @@ $(document).ready(function(){
 
   //Add event listener to button with id="creat-profile"
   document.getElementById('create-profile').addEventListener('click', getUserInfo, false);
-
+  // jQuery Mask Plug-in, formats phone number
+  $('#phone').mask('(000) 000-0000');
 
   // // function to get users profile info 
   function getUserInfo() {
-    console.log('getUserInfo function invoked');
+    // console.log('getUserInfo function invoked');
     // store values for user profile details
     var firstName = document.getElementById('firstName').value;
     var lastName  = document.getElementById('lastName').value;
@@ -64,12 +65,12 @@ $(document).ready(function(){
     // City
     var userCity = document.getElementById('city').value;
     // var userCountry = country.getAttribute('data-value');
-    console.log('City ' + userCity);
+    // console.log('City ' + userCity);
 
     // State
     var userState = document.getElementById('state').value;
     // var userCountry = country.getAttribute('data-value');
-    console.log('City ' + userState);
+    // console.log('City ' + userState);
 
     // Gender - loop through all elements with class="gender"
     var userGenderList = document.getElementsByClassName('gender-radio');
@@ -79,11 +80,11 @@ $(document).ready(function(){
       if(userGenderList[i].checked) {
         // set value of gender to the value selected in the radio 
         var userGender = userGenderList[i].value;
-        console.log('Gender list ' + userGender);
+        // console.log('Gender list ' + userGender);
       }
     }
 
-    if(userGender == undefined) {
+    if(userGender === undefined) {
       // add a class of no-input to message if user forgets to select a value
       message.className = "no-input";
       // update the text content of message
@@ -105,14 +106,20 @@ $(document).ready(function(){
         }
     }
 
-    if(petList === undefined) {
+    if(selectedPets.length === 0) {
       // add a class of no-input to message if user forgets to select a value
       message.className = "no-input";
       // update the text content of message
-      message.textContent = "Please select your pets";
+      message.textContent = "Please select your answer for pets";
       // stop function if no answer
       return;
     };
+
+    // If None in pets is checked, disable other checkboxes
+    // Fix this, not working!
+    $('#none').on('change', function() {
+      $('.uncheck').not(this).prop('checked', false);  
+    });
 
     // When everything looks good add a class of success to message
     message.className = "success";
@@ -187,13 +194,13 @@ $(document).ready(function(){
     message.className = "no-input";
     // Display this message
     message.textContent = "Go ahead and update your profile!";
-    // Show the div
+    // Show the div that contains the message
     document.getElementById('message').style.display = "block";
     // Hide the newuser form div
     document.getElementById('new-user-div').style.display = 'none';
 
     // Invoke getUserInfo function 
-    getUserInfo();
+    // getUserInfo();
     // Show user profile form so user can update the form
     document.getElementById('user-profile').style.display = "block";
 

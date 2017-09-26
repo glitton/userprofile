@@ -19,7 +19,7 @@
 }
 
 .form-control{
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .gender {
@@ -38,14 +38,14 @@
     margin-left: 34px;
 }
 
-#none-label {
-    position: absolute;
-    left: 315px;
-    bottom: 76px;
+.none-label {
+    position: relative;
+    left: 300px;
+    bottom: 25.5px;
 }
 
 .create {
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
     text-align: center;
 }
 
@@ -53,6 +53,10 @@
     color: white;
     text-align: center;
 
+}
+
+.profile-message {
+    line-height: 22px;
 }
 
 .no-input {
