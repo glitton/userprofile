@@ -43,11 +43,17 @@ $(document).ready(function(){
     };
 
     // Email 
+    var emailRegex = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
     if (email === "") {
       // add a class of no-input to message if user forgets to input value
       message.className = "no-input";
       // update the text content of message
       message.textContent = "Please add your email";
+    } else if (email !== emailRegex ){
+      message.className = "no-input";
+      message.textContent = "Invalid email. Email must match format somename@domain.com."
+
+    } else {
       // stop function if no answer
       return;
     };
